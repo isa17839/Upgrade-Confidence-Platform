@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upgrade Confidence Platform - New Functionality Draft</title>
+  <meta name="description" content="Draft introduction page for new Upgrade Confidence Platform functionality." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --slds-g-spacing-1: 0.25rem;
+      --slds-g-spacing-2: 0.5rem;
+      --slds-g-spacing-3: 0.75rem;
+      --slds-g-spacing-4: 1rem;
+      --slds-g-spacing-5: 1.5rem;
+      --slds-g-spacing-6: 2rem;
+      --slds-g-radius-border-2: 0.25rem;
+      --slds-g-color-brand-base-60: #1b96ff;
+      --slds-g-color-brand-base-50: #0176d3;
+      --slds-g-color-surface-1: #fff;
+      --slds-g-color-surface-2: #f3f3f3;
+      --slds-g-color-on-surface-1: #747474;
+      --slds-g-color-on-surface-2: #2e2e2e;
+      --slds-g-color-on-surface-3: #181818;
+      --slds-g-font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--slds-g-font-family);
+      background: var(--slds-g-color-surface-2);
+      color: var(--slds-g-color-on-surface-3);
+      min-height: 100%;
+    }
+    .slds-global-header {
+      background: var(--slds-g-color-brand-base-60);
+      color: #fff;
+      padding: var(--slds-g-spacing-3) var(--slds-g-spacing-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 1.1rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    .slds-context-bar {
+      background: var(--slds-g-color-surface-1);
+      border-bottom: 1px solid var(--slds-g-color-on-surface-1);
+      padding: var(--slds-g-spacing-2) var(--slds-g-spacing-6);
+      display: flex;
+      align-items: center;
+      gap: var(--slds-g-spacing-4);
+    }
+    .slds-context-bar__label {
+      font-size: 1.05rem;
+      color: var(--slds-g-color-on-surface-2);
+      font-weight: 500;
+    }
+    .slds-main-content {
+      max-width: 1100px;
+      margin: var(--slds-g-spacing-6) auto;
+      background: var(--slds-g-color-surface-1);
+      border-radius: var(--slds-g-radius-border-2);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      padding: var(--slds-g-spacing-6);
+    }
+    .badge {
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--slds-g-color-brand-base-50);
+      border: 1px solid var(--slds-g-color-brand-base-60);
+      background: rgba(255,255,255,0.7);
+      border-radius: 999px;
+      padding: 6px 10px;
+      margin-left: var(--slds-g-spacing-3);
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .slds-main-content {
+        padding: var(--slds-g-spacing-3);
+      }
+    }
+    @media (max-width: 600px) {
+      .slds-global-header, .slds-context-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: var(--slds-g-spacing-2);
+      }
+      .slds-main-content {
+        padding: var(--slds-g-spacing-2);
+      }
+    }
+    /* Draft content styles (reuse from original) */
+    .hero, .section, .grid, .card, .tile, .tile-label, .tile-value, .eyebrow, .intro, .actions, .btn, .btn-primary, .btn-secondary, .snapshot, .timeline, .footer {
+      all: unset;
+      display: revert;
+    }
+    .hero {
+      margin-top: 24px;
+      background: var(--slds-g-color-surface-2);
+      border-radius: var(--slds-g-radius-border-2);
+      padding: var(--slds-g-spacing-5);
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: var(--slds-g-spacing-5);
+    }
+    .eyebrow {
+      font-size: 0.8rem;
+      color: var(--slds-g-color-brand-base-50);
+      margin-bottom: var(--slds-g-spacing-2);
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .intro {
+      color: var(--slds-g-color-on-surface-1);
+      margin-top: var(--slds-g-spacing-2);
+      font-size: 1.05rem;
+      max-width: 62ch;
+    }
+    .actions {
+      margin-top: var(--slds-g-spacing-4);
+      display: flex;
+      gap: var(--slds-g-spacing-2);
+    }
+    .btn {
+      border: 0;
+      border-radius: var(--slds-g-radius-border-2);
+      padding: 10px 18px;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-right: var(--slds-g-spacing-2);
+    }
+    .btn-primary {
+      background: var(--slds-g-color-brand-base-60);
+      color: #fff;
+    }
+    .btn-secondary {
+      background: var(--slds-g-color-surface-2);
+      color: var(--slds-g-color-brand-base-50);
+      border: 1px solid var(--slds-g-color-brand-base-60);
+    }
+    .snapshot {
+      display: grid;
+      gap: var(--slds-g-spacing-2);
+    }
+    .tile {
+      border-radius: var(--slds-g-radius-border-2);
+      padding: var(--slds-g-spacing-3);
+      background: var(--slds-g-color-surface-1);
+      border: 1px solid var(--slds-g-color-on-surface-1);
+    }
+    .tile-label {
+      font-size: 0.8rem;
+      color: var(--slds-g-color-on-surface-1);
+      text-transform: uppercase;
+    }
+    .tile-value {
+      margin-top: var(--slds-g-spacing-1);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--slds-g-color-brand-base-50);
+    }
+    .section {
+      margin-top: var(--slds-g-spacing-5);
+      background: var(--slds-g-color-surface-2);
+      border-radius: var(--slds-g-radius-border-2);
+      border: 1px solid var(--slds-g-color-on-surface-1);
+      padding: var(--slds-g-spacing-4);
+    }
+    .section h2 {
+      margin: 0 0 var(--slds-g-spacing-2);
+      font-size: 1.3rem;
+      color: var(--slds-g-color-on-surface-2);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--slds-g-spacing-2);
+      margin-top: var(--slds-g-spacing-2);
+    }
+    .card {
+      background: var(--slds-g-color-surface-1);
+      border-radius: var(--slds-g-radius-border-2);
+      padding: var(--slds-g-spacing-3);
+      border: 1px solid var(--slds-g-color-on-surface-1);
+    }
+    .card h3 {
+      margin: 2px 0 8px;
+      font-size: 1rem;
+    }
+    .card p {
+      margin: 0;
+      color: var(--slds-g-color-on-surface-1);
+      line-height: 1.55;
+      font-size: 0.95rem;
+    }
+    .timeline {
+      margin: 0;
+      padding-left: var(--slds-g-spacing-4);
+      color: var(--slds-g-color-on-surface-1);
+      line-height: 1.7;
+    }
+    .footer {
+      margin-top: var(--slds-g-spacing-4);
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--slds-g-color-on-surface-1);
+    }
+  </style>
+</head>
+<body>
+  <div class="slds-global-header">
+    <span>Upgrade Confidence Platform</span>
+    <span class="badge">Draft Presentation Page</span>
+  </div>
+  <nav class="slds-context-bar">
+    <span class="slds-context-bar__label">Product Updates</span>
+  </nav>
+  <main class="slds-main-content">
+    <!-- Upgrade Confidence Platform: Feature Blocks -->
+    <section class="section" id="current-version">
+      <h2>1. Current Version</h2>
+      <p>Show installed version and install date. <em>Source: Tooling API</em></p>
+      <div class="grid">
+        <div class="tile">
+          <div class="tile-label">Installed Version</div>
+          <div class="tile-value">v121.4</div>
+        </div>
+        <div class="tile">
+          <div class="tile-label">Install Date</div>
+          <div class="tile-value">2025-11-10</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="recommended-upgrade">
+      <h2>2. Recommended Upgrade</h2>
+      <p>Show target version and release date. <em>Source: Packaging Org</em></p>
+      <div class="grid">
+        <div class="tile">
+          <div class="tile-label">Target Version</div>
+          <div class="tile-value">v121.14</div>
+        </div>
+        <div class="tile">
+          <div class="tile-label">Release Date</div>
+          <div class="tile-value">2026-05-15</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="version-lifecycle">
+      <h2>3. Version Lifecycle Status</h2>
+      <p>Supported → Maintenance → Deprecated → EOL timeline</p>
+      <div class="grid">
+        <div class="tile">
+          <div class="tile-label">v121.4</div>
+          <div class="tile-value">Maintenance</div>
+        </div>
+        <div class="tile">
+          <div class="tile-label">v121.10</div>
+          <div class="tile-value">Deprecated</div>
+        </div>
+        <div class="tile">
+          <div class="tile-label">v121.14</div>
+          <div class="tile-value">Supported</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="upgrade-benefits">
+      <h2>4. Upgrade Benefits</h2>
+      <p>AI-generated summary of cumulative improvements.</p>
+      <div class="card">
+        <p><strong>AI Summary:</strong> This upgrade delivers improved performance, enhanced security, and new automation features. Cumulative improvements include bug fixes, UI enhancements, and expanded API coverage.</p>
+      </div>
+    </section>
+
+    <section class="section" id="aggregated-changelogs">
+      <h2>5. Aggregated Change Logs</h2>
+      <p>Combined release notes from all versions between current and target (e.g., v121.4 → v121.14)</p>
+      <div class="card">
+        <ul>
+          <li><strong>v121.14:</strong> Added AI-powered insights panel.</li>
+          <li><strong>v121.12:</strong> Improved metadata diffing and reporting.</li>
+          <li><strong>v121.10:</strong> Security patch for permission sets.</li>
+          <li><strong>v121.8:</strong> Enhanced test coverage reporting.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="metadata-impact-viewer">
+      <h2>6. Metadata Impact Viewer</h2>
+      <p>Changed metadata categories with importance levels and business-friendly descriptions.</p>
+      <div class="grid">
+        <div class="tile">
+          <div class="tile-label">Apex Classes</div>
+          <div class="tile-value">High</div>
+          <p>Core logic changes affecting automation and integrations.</p>
+        </div>
+        <div class="tile">
+          <div class="tile-label">Flows</div>
+          <div class="tile-value">Medium</div>
+          <p>Updates to business process automations.</p>
+        </div>
+        <div class="tile">
+          <div class="tile-label">Layouts</div>
+          <div class="tile-value">Low</div>
+          <p>Minor UI adjustments for end users.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ai-confidence-score">
+      <h2>7. AI Confidence Score</h2>
+      <p>Risk assessment with scoring breakdown (Apex, Flows, Permissions, Layouts)</p>
+      <div class="grid">
+        <div class="tile">
+          <div class="tile-label">Apex</div>
+          <div class="tile-value">92%</div>
+        </div>
+        <div class="tile">
+          <div class="tile-label">Flows</div>
+          <div class="tile-value">88%</div>
+        </div>
+        <div class="tile">
+          <div class="tile-label">Permissions</div>
+          <div class="tile-value">95%</div>
+        </div>
+        <div class="tile">
+          <div class="tile-label">Layouts</div>
+          <div class="tile-value">97%</div>
+        </div>
+      </div>
+      <div class="card">
+        <p><strong>Overall Confidence:</strong> 93% (Low risk for upgrade)</p>
+      </div>
+    </section>
+
+    <section class="section" id="ai-chat-assistant">
+      <h2>8. AI Chat Assistant</h2>
+      <p>Plain-language Q&A about upgrade impact.</p>
+      <div class="card">
+        <p><strong>Q:</strong> Will this upgrade affect my custom flows?</p>
+        <p><strong>A:</strong> No breaking changes detected in your custom flows. Minor improvements will be applied automatically.</p>
+      </div>
+    </section>
+
+    <section class="section" id="pre-upgrade-simulation">
+      <h2>9. Pre-Upgrade Simulation</h2>
+      <p>Button: creates scratch org → deploys → tests → reports</p>
+      <div class="actions">
+        <button class="btn btn-primary">Run Pre-Upgrade Simulation</button>
+      </div>
+      <div class="card">
+        <p>Simulate the upgrade in a scratch org to preview results and catch issues before production deployment.</p>
+      </div>
+    </section>
+
+    <section class="section" id="upgrade-actions">
+      <h2>10. Upgrade Actions</h2>
+      <p>Start upgrade, download report, run simulation</p>
+      <div class="actions">
+        <button class="btn btn-primary">Start Upgrade</button>
+        <button class="btn btn-secondary">Download Report</button>
+        <button class="btn btn-secondary">Run Simulation</button>
+      </div>
+    </section>
+
+    <section class="section" id="qa-results">
+      <h2>11. QA Results</h2>
+      <p>Automated test results (tests passed, coverage, regressions)</p>
+      <div class="grid">
+        <div class="tile">
+          <div class="tile-label">Tests Passed</div>
+          <div class="tile-value">128</div>
+        </div>
+        <div class="tile">
+          <div class="tile-label">Coverage</div>
+          <div class="tile-value">94%</div>
+        </div>
+        <div class="tile">
+          <div class="tile-label">Regressions</div>
+          <div class="tile-value">0</div>
+        </div>
+      </div>
+    </section>
+    <p class="footer">Draft only. Replace sample data and copy with production-aligned values before external sharing.</p>
+  </main>
+</body>
+</html>
